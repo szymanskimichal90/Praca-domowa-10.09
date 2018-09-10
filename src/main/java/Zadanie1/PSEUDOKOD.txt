@@ -1,0 +1,4 @@
+add(a,b)
+read (a,b)
+table -> [a,b]
+write sum(Instream.of(table))
