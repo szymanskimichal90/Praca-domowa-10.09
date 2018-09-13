@@ -21,12 +21,13 @@ public class Util<T> {
             ex.printStackTrace();
         }
     }
+    T newObject;
 
-    public void readObj() {
+    public T readObj() {
         try (ObjectInputStream oos =
                      new ObjectInputStream(new FileInputStream("C:\\Programowanie\\Java\\Niedziela09092018PracaDomowa\\src\\main\\resources\\Object.txt"))) {
 
-            T newObject = (T) oos.readObject();
+            newObject = (T) oos.readObject();
             System.out.println("Done");
 
         } catch (FileNotFoundException e) {
@@ -34,6 +35,7 @@ public class Util<T> {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        return newObject;
     }
 }
 

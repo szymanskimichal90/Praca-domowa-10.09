@@ -5,6 +5,14 @@ public class Main {
         Person jas = new Person("Jan", "Kowalski", 23,Gender.MALE);
         Util util = new Util();
         util.saveObj(jas);
-        util.readObj();
+        Object nowy = new Util();
+        nowy =  util.readObj();
+        System.out.println(jas);
+        System.out.println(nowy);
+        System.out.println(jas.equals(nowy));
+        System.out.println(jas==nowy);
+        System.out.println("************");
+        System.out.println(jas.hashCode());
+        System.out.println(nowy.hashCode());
     }
 }
