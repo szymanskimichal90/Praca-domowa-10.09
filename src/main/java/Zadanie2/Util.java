@@ -1,18 +1,14 @@
 package Zadanie2;
 
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 public class Util<T> {
+    private static final String NAME_OF_FILE = "MyObject.obj";
 
 
     public void saveObj(T object) {
-        try (ObjectOutputStream oos =
-                     new ObjectOutputStream(new FileOutputStream("C:\\Programowanie\\Java\\Niedziela09092018PracaDomowa\\src\\main\\resources\\Object.txt"))) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(NAME_OF_FILE))) {
 
             oos.writeObject(object);
             System.out.println("Done");
@@ -21,24 +17,29 @@ public class Util<T> {
             ex.printStackTrace();
         }
     }
-    T newObject;
+
+   // T newObject;
+
 
     public T readObj() {
-        try (ObjectInputStream oos =
-                     new ObjectInputStream(new FileInputStream("C:\\Programowanie\\Java\\Niedziela09092018PracaDomowa\\src\\main\\resources\\Object.txt"))) {
+        T resultObject = null;
+        File file = new File(NAME_OF_FILE);
+        if (file.exists()) {
+            try (ObjectInputStream oos = new ObjectInputStream(new FileInputStream(NAME_OF_FILE))) {
 
-            newObject = (T) oos.readObject();
-            System.out.println("Done");
+                resultObject = (T) oos.readObject();
+                System.out.println("Done");
 
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (Exception ex) {
-            ex.printStackTrace();
+            } catch (FileNotFoundException e) {
+                System.out.println("File not found");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
         }
-        return newObject;
+        return resultObject;
     }
 }
-
 
 
 
