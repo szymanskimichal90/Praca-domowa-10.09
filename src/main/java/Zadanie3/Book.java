@@ -34,6 +34,8 @@ public class Book implements Comparable{
     public String toString() {
         StringBuilder toSringResult = new StringBuilder("Book: ");
         toSringResult.append(" tytuł: ").append(topic);
+        toSringResult.append(" Autor: ").append(getAuthor().getName());
+        toSringResult.append(" ").append(getAuthor().getSecondName());
         toSringResult.append(", okładka: ").append(cover.getPolski());
         return toSringResult.toString();
 
@@ -44,8 +46,12 @@ public class Book implements Comparable{
         return this.topic.compareTo(book.topic);
     }
 
+    public Author getAuthor() {
+        return author;
+    }
 
-
-
+    public Cover getCover() {
+        return cover;
+    }
 }
 
