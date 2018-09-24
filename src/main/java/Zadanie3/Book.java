@@ -1,6 +1,6 @@
 package Zadanie3;
 
-public class Book implements Comparable{
+public class Book implements Comparable {
     private String topic;
     private Author author;
     private Cover cover;
@@ -42,7 +42,7 @@ public class Book implements Comparable{
     }
 
     public int compareTo(Object o) {
-       Book book = (Book) o;
+        Book book = (Book) o;
         return this.topic.compareTo(book.topic);
     }
 
