@@ -75,11 +75,14 @@ public class BookDao<T> {
         }
         return autorsBooks;
     }
-    public Book giveMeBook(String title){
+
+    public Book giveMeBook(String title) {
         Book result = null;
-        
-
-
+        for (Book book : bookList) {
+            if (book.getTopic().contains(title)) {
+                result = book;
+            }
+        }
         return result;
     }
 }
